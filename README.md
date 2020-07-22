@@ -11,7 +11,7 @@ Technology  | Version
 ------------- | -------------
 Node  | 12.4.0
 
-## Running
-
-You can send one or more data (use space to separate)
+## Running 
     $ node index.js [private key] [data to be sent] [another data to be sent] ...
+    
+(You can send one or more data (use space to separate))
