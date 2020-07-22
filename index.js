@@ -13,7 +13,13 @@ String.prototype.hexEncode = function(){
 }
 
 const pk = process.argv[2];
-const data = process.argv[3];
+const data = process.argv.slice(3);
+
+let array_data;
+
+data.forEach(element => {
+    array_data += ('\n' + element + '\n');
+})
 
 // You can use any standard network name
 //  - "homestead"
@@ -29,11 +35,12 @@ let balancePromise = wallet.getBalance();
 
 balancePromise.then((balance) => {
     console.log(`current balance: ${balance} wei's`);
+
 });
 
 const tx = {
     to: wallet.address,  // the target address or ENS name
-    data: '0x' + data.hexEncode(),
+    data: '0x' + array_data.hexEncode(),
 }
 
 const sendPromise = wallet.sendTransaction(tx);
